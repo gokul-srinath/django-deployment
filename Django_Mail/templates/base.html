@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .fieldWrapper{
+            text-align: left;
+            color:white;
+                
+            
+        }
+        body{
+            background-image:url("https://www.idfreshfood.com/wp-content/uploads/2017/09/contact_us_2.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            color:white
+            
+        }
+        .container{
+            margin-top: 50px;
+            border-radius: 10px;
+            background-color:rgba(0,0,0,0.3);
+            max-width: 550px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="display-4">Django Mail!</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="fieldWrapper">
+                {{ form.subject.errors }}
+                <label for="id_subject" class='lead'>Email subject:</label><br>
+                {{ form.subject }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.sender.errors }}
+                <label for="id_email" class='lead'>Your email address:</label><br>
+                {{ form.email }}
+            </div>
+            <div class="fieldWrapper">
+                {{ form.message.errors }}
+                <label for="id_message" class='lead'>Your message:</label><br>
+                {{ form.message }}
+            </div>
+            
+        <button type="submit" value="SUBMIT" class="btn btn-primary">SEND</button>
+    </form>
+    </div>
+</body>
+</html>
